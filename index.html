@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loema — the commons</title>
+<meta name="description" content="The public trust layer of Loema: the open constitution format, the refusal ledger, the roadmap, and where the money goes.">
+<style>
+:root{--paper:#f6f2e8;--ink:#211f1a;--dim:#5f594c;--line:#d8d1c0;--accent:#59503c;--soft:#fbf8f1;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);
+  line-height:1.6;min-height:100vh;display:flex;flex-direction:column;}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:10;}
+.skip:focus{left:12px;top:12px;}
+header.site{border-bottom:1px solid var(--line);}
+.shell{max-width:680px;margin:0 auto;padding:0 22px;width:100%;}
+header.site .shell{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;padding-top:22px;padding-bottom:18px;}
+.wordmark{font-size:1.1rem;letter-spacing:.02em;color:var(--ink);text-decoration:none;}
+.wordmark .org{color:var(--dim);}
+nav.site{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.82rem;letter-spacing:.04em;}
+nav.site a{color:var(--dim);text-decoration:none;margin-left:14px;}
+nav.site a:hover,nav.site a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+main{flex:1;padding:46px 0 70px;}
+h1{font-size:1.9rem;font-weight:400;line-height:1.25;letter-spacing:-.01em;margin-bottom:18px;}
+h2{font-size:1.25rem;font-weight:400;margin:34px 0 10px;}
+h3{font-size:1.02rem;margin:22px 0 8px;}
+p{margin-bottom:14px;}
+ul,ol{margin:0 0 14px 22px;}
+li{margin-bottom:8px;}
+a{color:var(--accent);text-underline-offset:2px;}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.lede{font-size:1.12rem;color:var(--dim);margin-bottom:26px;}
+.recap{background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:8px;padding:14px 16px;margin:10px 0 18px;font-size:.95rem;}
+.recap b{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);display:block;margin-bottom:6px;font-weight:600;}
+.quiet{color:var(--dim);font-size:.92rem;}
+.ledger{list-style:none;margin-left:0;}
+.ledger li{border-top:1px solid var(--line);padding:14px 2px;margin:0;}
+.ledger b{display:block;margin-bottom:4px;font-weight:600;}
+.era{border-left:2px solid var(--line);padding:4px 0 4px 18px;margin-bottom:18px;}
+.era .when{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);}
+footer.site{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.85rem;color:var(--dim);}
+footer.site .shell{display:flex;flex-direction:column;gap:8px;}
+footer.site a{color:var(--dim);}
+footer.site nav{display:flex;flex-wrap:wrap;gap:4px 16px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.78rem;}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88em;background:var(--soft);
+  border:1px solid var(--line);border-radius:4px;}
+code{padding:1px 5px;}
+pre{padding:14px;overflow-x:auto;margin-bottom:14px;}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="shell">
+  <a class="wordmark" href="/">loema<span class="org">.org</span></a>
+  <nav class="site" aria-label="Site"><a href="/" aria-current="page">Home</a><a href="/constitution/">The format</a><a href="/refusals/">Refusals</a><a href="/roadmap/">Roadmap</a><a href="/funds/">Funds</a></nav>
+</div></header>
+<main id="main"><div class="shell">
+
+<h1>The quiet half of Loema.</h1>
+<p class="lede">loema.com is where you write the rules your technology has to follow.
+This is where Loema holds itself to rules of its own.</p>
+
+<p>Loema is built on a simple refusal: software that shapes how you see yourself should not
+also be studying you. The litmus at loema.com issues a personal constitution that lives only
+in your keeping — Loema operates no server that holds it, no account that contains you, and
+no analytics that watch you write it.</p>
+
+<p>This site is the public trust layer. It carries the things a promise needs in order to be
+checkable rather than taken on faith:</p>
+
+<ul>
+<li><a href="/constitution/">The constitution format</a> — the open standard your document is
+written in, published so anything you trust can read it without asking us.</li>
+<li><a href="/refusals/">The refusal ledger</a> — what Loema could build and will not, with reasons.</li>
+<li><a href="/roadmap/">The roadmap</a> — where this is going, in the open.</li>
+<li><a href="/funds/">Where money goes</a> — how an ad-free, data-free project stays alive.</li>
+</ul>
+
+<h2>Who is behind this</h2>
+<p>Loema is built by its founder under <strong>Loema LLC</strong>, a small company formed in 2026
+for exactly this work. There are no investors steering it and nothing here is for sale to
+advertisers — the <a href="/funds/">funds page</a> says how the lights stay on.
+You can reach a person at <a href="mailto:feedback@loema.com">feedback@loema.com</a>.</p>
+
+<p class="quiet">More arrives here as it is ready — essays, and the standards Loema measures
+itself by. Nothing on this site will ever need an account to read.</p>
+
+</div></main>
+<footer class="site"><div class="shell">
+  <nav aria-label="Legal">
+    <a href="/legal/privacy/">Privacy</a>
+    <a href="/legal/terms/">Terms</a>
+    <a href="/legal/cookies/">Cookies</a>
+    <a href="/legal/refunds/">Refunds</a>
+  </nav>
+  <p>Loema LLC &middot; <a href="mailto:feedback@loema.com">feedback@loema.com</a></p>
+  <p>loema.org sets no cookies, runs no analytics, and loads nothing from anyone else's servers.
+     <a href="https://www.loema.com">loema.com</a> is where the conversation begins.</p>
+</div></footer>
+</body>
+</html>

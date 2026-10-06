@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://loema.org/constitution/v2",
+  "title": "Personal Data Constitution (v2)",
+  "description": "The document issued by the Loema litmus (instrument loema-litmus-v5) and carried by its author. Published so the file outlives Loema; permissive by design \u2014 unknown fields MUST be preserved, never stripped. /v2 always means v2; future versions get their own address.",
+  "type": "object",
+  "required": [
+    "articles"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://loema.org/constitution/v2"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "The instrument's namespace; 'personal' for the first litmus."
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "description": "Optional name or pseudonym, chosen by the author."
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "preamble": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The author's own sentence, verbatim."
+        },
+        "register": {
+          "type": "string",
+          "enum": [
+            "plain",
+            "boundaries",
+            "technical",
+            "creative"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "articles": {
+      "type": "object",
+      "description": "Keys are namespaced article ids (e.g. personal.feeds). Reserved namespaces communal.*, systemic.*, ecological.* exist for sibling scales; readers must tolerate namespaces they do not know.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "posture": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "comfortable | concerned | uncertain | conditional | unset \u2014 internal vocabulary, never shown as a label."
+          },
+          "rule": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The article's text, in the author's register."
+          },
+          "source": {
+            "type": "string",
+            "description": "generated_from_response | authored | unanswered \u2014 no silent certainty."
+          },
+          "evidence": {
+            "description": "Question ids the article was drafted from."
+          },
+          "confirmed": {
+            "type": "boolean"
+          },
+          "amended": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "loema_safeguards": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Defaults Loema applies until the author decides \u2014 explicitly outside the author's words."
+    },
+    "through_line": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "partial",
+            "replaced_by_author",
+            "fits"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "personal_focus": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "What the author said keeps getting buried \u2014 their own words."
+    },
+    "dispositions": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "exceptions": {
+      "type": "array"
+    },
+    "amendments": {
+      "type": "array",
+      "description": "The author's amendment history; shape is author-governed."
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "confirmed": {
+          "type": "boolean"
+        },
+        "witnessed_at_local": {
+          "type": "string",
+          "description": "Device-local time; never transmitted."
+        },
+        "ratified_at_local": {
+          "type": "string"
+        },
+        "hold_ms": {
+          "type": "number"
+        },
+        "rhythm_ms": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "OPT-IN ONLY. Coarse inter-tap intervals of the signing; present only if the author chose to keep them. Lives in this file and nowhere else."
+        },
+        "circles": {
+          "type": "array",
+          "description": "OPT-IN ONLY. Coarse ring traces: sweep_deg in 15-degree steps, direction, duration_ms in 50 ms steps \u2014 never a raw path."
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "instrument": {
+          "type": "string"
+        },
+        "stored_by_loema": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    }
+  }
+}
