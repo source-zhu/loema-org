@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Terms of service — Loema</title>
-<meta name="description" content="The terms for using loema.com and loema.org, in plain language with plain recaps.">
+<title>The constitution format — Loema</title>
+<meta name="description" content="The open format of the personal data constitution: what the file holds, why it is yours, and the published schema.">
 <style>
 :root{--paper:#f6f2e8;--ink:#211f1a;--dim:#5f594c;--line:#d8d1c0;--accent:#59503c;--soft:#fbf8f1;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -79,59 +79,42 @@ pre{padding:14px;overflow-x:auto;margin-bottom:14px;}
         <span class="which">where you are — the commons</span></a>
     </div>
   </details>
-  <nav class="site" aria-label="Site"><a href="/">Home</a><a href="/constitution/">The format</a><a href="/refusals/">Refusals</a><a href="/roadmap/">Roadmap</a><a href="/funds/">Funds</a></nav>
+  <nav class="site" aria-label="Site"><a href="/">Home</a><a href="/constitution/" aria-current="page">The format</a><a href="/refusals/">Refusals</a><a href="/roadmap/">Roadmap</a><a href="/funds/">Funds</a></nav>
 </div></header>
 <main id="main"><div class="shell">
 
-<h1>Terms of service.</h1>
-<p class="lede">For <strong>loema.com</strong> and <strong>loema.org</strong>, operated by
-Loema LLC. Effective October 2026.</p>
-<div class="recap"><b>In plain words</b>Use the litmus freely; the document it makes is yours. Don't misuse the sites. Loema is honest reflection, not professional advice, and comes as-is. Donations are gifts, not purchases.</div>
+<h1>The constitution format.</h1>
+<p class="lede">The document loema.com issues is a small, readable file that belongs to the
+person who wrote it. This page is its public definition — so your document outlives Loema.</p>
 
-<h2>1. Who we are</h2>
-<p>These sites are operated by Loema LLC ("Loema", "we"). Contact:
-<a href="mailto:feedback@loema.com">feedback@loema.com</a>.</p>
+<h2>What the file is</h2>
+<p>A personal data constitution is a JSON document: your own articles about feeds, data,
+attention, retention, and sharing — what you said, what was drafted from your answers, what
+you confirmed, and what you amended, each marked so no words are put in your mouth. It carries
+your preamble verbatim, the thing you said you were protecting, and a signature block recorded
+only on your device.</p>
 
-<h2>2. The litmus and your document</h2>
-<p>The litmus is free. The constitution it produces is <strong>yours</strong>: you own your
-answers, your preamble, and your document, and you may use, edit, publish, or destroy it
-without any permission from us. Loema claims no license over your words — it never receives
-them.</p>
-<div class="recap"><b>In plain words</b>Your constitution belongs to you. Full stop.</div>
+<h2>The promises the format keeps</h2>
+<ul>
+<li><strong>No silent certainty.</strong> Every clause is machine-distinguishable as inferred,
+confirmed, amended, authored directly, or left open.</li>
+<li><strong>Yours, portably.</strong> The file is plain JSON. Any tool, any AI, any person you
+hand it to can read it without Loema's involvement.</li>
+<li><strong>Addresses are permanent.</strong> <code>/constitution/v2</code> always means version 2.
+Future versions get their own address; nothing you downloaded is ever redirected out from
+under you.</li>
+</ul>
 
-<h2>3. Our content and the open format</h2>
-<p>The text and design of these sites belong to Loema LLC. The constitution format and its
-published schema are open: you may read, implement, and build on them freely, with attribution
-appreciated. "Loema" and the Loema mark identify this project; please don't use them in ways
-that suggest we made or endorsed something we didn't.</p>
+<h2>The schema</h2>
+<p>Documents declare <code>"$schema": "https://loema.org/constitution/v2"</code>.
+The definition is served at exactly that address: <a href="/constitution/v2">loema.org/constitution/v2</a>.</p>
 
-<h2>4. What Loema is not</h2>
-<p>Loema offers structured self-reflection. It is not medical, psychological, legal, or
-financial advice, and it is not therapy or a substitute for professional care. The "AI preamble"
-feature prepares text <em>you</em> may give to third-party AI services; those services' own terms
-govern what happens there, and the preamble itself states that it cannot override their rules.</p>
-<div class="recap"><b>In plain words</b>Loema reflects. It doesn't diagnose, treat, or advise — and it says so to any AI you hand your preamble to.</div>
-
-<h2>5. Acceptable use</h2>
-<p>Don't attack, overload, or attempt to compromise the sites; don't misrepresent Loema;
-don't use the sites to violate law or others' rights.</p>
-
-<h2>6. Donations</h2>
-<p>Donations via Ko&#8209;fi are voluntary gifts supporting development. They are not purchases,
-investments, or pre-orders, and confer no goods, services, or rights. See the
-<a href="/legal/refunds/">refund policy</a>.</p>
-
-<h2>7. As-is; limitation of liability</h2>
-<p>The sites and the litmus are provided "as is," without warranties of any kind, to the fullest
-extent permitted by law. To that same extent, Loema LLC's total liability arising from your use
-of the sites is limited to the amount you have paid us — which, today, is nothing. Nothing here
-limits liability that cannot lawfully be limited.</p>
-<div class="recap"><b>In plain words</b>We built this carefully, and it's free — so our legal exposure matches: use it as-is.</div>
-
-<h2>8. Changes and governing law</h2>
-<p>We may update these terms; the effective date above changes when we do, and material changes
-are noted plainly. These terms are governed by the laws of the Commonwealth of Virginia, where Loema LLC is
-organized, without regard to conflict-of-law rules.</p>
+<h2>Openness</h2>
+<p>The format is published to be used. Reading, writing, and honoring these documents requires
+no permission from Loema and never will.</p>
+<p>A formal open license for the format is being settled with counsel. When it is chosen,
+it will be named here &mdash; and because such licenses are permanent once given, we are
+choosing it carefully rather than quickly.</p>
 
 </div></main>
 <footer class="site"><div class="shell">

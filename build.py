@@ -2,7 +2,7 @@
 # loema.org — the shape draft. Plain, accessible, zero external requests.
 import os, html
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 
 CSS = """
 :root{--paper:#f6f2e8;--ink:#211f1a;--dim:#5f594c;--line:#d8d1c0;--accent:#59503c;--soft:#fbf8f1;}
@@ -185,6 +185,9 @@ The definition is served at exactly that address: <a href="/constitution/v2">loe
 <h2>Openness</h2>
 <p>The format is published to be used. Reading, writing, and honoring these documents requires
 no permission from Loema and never will.</p>
+<p>A formal open license for the format is being settled with counsel. When it is chosen,
+it will be named here &mdash; and because such licenses are permanent once given, we are
+choosing it carefully rather than quickly.</p>
 """)
 
 PAGES["refusals/index.html"] = ("The refusal ledger — Loema", "What Loema could build and refuses to, with reasons. The negative architecture, in public.", "/refusals/", """
@@ -363,7 +366,9 @@ them.</p>
 <h2>3. Our content and the open format</h2>
 <p>The text and design of these sites belong to Loema LLC. The constitution format and its
 published schema are open: you may read, implement, and build on them freely, with attribution
-appreciated. "Loema" and the Loema mark identify this project; please don't use them in ways
+appreciated. A formal open license for the format is being settled with counsel and will be
+named on the <a href="/constitution/">format page</a> when chosen. "Loema" and the Loema mark
+identify this project; please don't use them in ways
 that suggest we made or endorsed something we didn't.</p>
 
 <h2>4. What Loema is not</h2>
@@ -515,16 +520,20 @@ write("_headers", """/constitution/v2
 
 write("robots.txt", "User-agent: *\nAllow: /\n")
 
-write("README.md", """# loema.org — shape draft
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md"), "w") as _f: _f.write("""# loema.org
 
 The public trust layer of Loema. Static, zero external requests, no cookies,
-no analytics, no forms. Deploy target: Cloudflare Pages (the `_headers` file
-serves `/constitution/v2` as JSON Schema).
+no analytics, no forms.
+
+Everything under `site/` is generated — edit `build.py` at the repo root and
+run `python3 build.py` to regenerate. Deploy: Cloudflare Pages, no build
+command, build output directory `site` (the `_headers` file there serves
+`/constitution/v2` as JSON Schema).
 
 Held back deliberately (reserved, unbuilt): /essays/, /clarity-analytics/.
 
-Legal pages are accurate drafts of actual practice, written to carry into the
-attorney pass (founder to-do item 11) — governing-law state intentionally
-generic pending that pass.
+Legal pages are accurate statements of actual practice (governing law:
+Virginia), to be hardened in the attorney pass. The format's open license is
+being settled with counsel; the format page says so until it is named.
 """)
 print("done")

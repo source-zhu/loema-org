@@ -1,11 +1,15 @@
-# loema.org — shape draft
+# loema.org
 
 The public trust layer of Loema. Static, zero external requests, no cookies,
-no analytics, no forms. Deploy target: Cloudflare Pages (the `_headers` file
-serves `/constitution/v2` as JSON Schema).
+no analytics, no forms.
+
+Everything under `site/` is generated — edit `build.py` at the repo root and
+run `python3 build.py` to regenerate. Deploy: Cloudflare Pages, no build
+command, build output directory `site` (the `_headers` file there serves
+`/constitution/v2` as JSON Schema).
 
 Held back deliberately (reserved, unbuilt): /essays/, /clarity-analytics/.
 
-Legal pages are accurate drafts of actual practice, written to carry into the
-attorney pass (founder to-do item 11) — governing-law state intentionally
-generic pending that pass.
+Legal pages are accurate statements of actual practice (governing law:
+Virginia), to be hardened in the attorney pass. The format's open license is
+being settled with counsel; the format page says so until it is named.
