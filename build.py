@@ -15,8 +15,22 @@ body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:v
 header.site{border-bottom:1px solid var(--line);}
 .shell{max-width:680px;margin:0 auto;padding:0 22px;width:100%;}
 header.site .shell{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;padding-top:22px;padding-bottom:18px;}
-.wordmark{font-size:1.1rem;letter-spacing:.02em;color:var(--ink);text-decoration:none;}
-.wordmark .org{color:var(--dim);}
+/* the domain toggle: loema stays; the half you're in drops down and swaps */
+.domain{position:relative;}
+.domain summary{list-style:none;cursor:pointer;font-size:1.1rem;letter-spacing:.02em;color:var(--ink);
+  display:inline-flex;align-items:baseline;gap:4px;}
+.domain summary::-webkit-details-marker{display:none;}
+.domain summary .org{color:var(--dim);}
+.domain summary .caret{font-size:.6rem;color:var(--dim);transform:translateY(-2px);}
+.domain[open] summary .caret{transform:translateY(-2px) rotate(180deg);}
+.domain .menu{position:absolute;top:calc(100% + 8px);left:0;z-index:20;min-width:200px;
+  background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:8px;
+  box-shadow:0 6px 24px rgba(33,31,26,.08);}
+.domain .menu a{display:block;padding:9px 12px;border-radius:6px;text-decoration:none;color:var(--ink);}
+.domain .menu a:hover{background:var(--paper);}
+.domain .menu .which{display:block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:2px;}
+.domain .menu a[aria-current] .which{color:var(--accent);}
 nav.site{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.82rem;letter-spacing:.04em;}
 nav.site a{color:var(--dim);text-decoration:none;margin-left:14px;}
 nav.site a:hover,nav.site a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
@@ -72,7 +86,15 @@ def page(path, title, desc, body, current):
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="shell">
-  <a class="wordmark" href="/">loema<span class="org">.org</span></a>
+  <details class="domain">
+    <summary aria-label="loema.org — switch between loema.com and loema.org">loema<span class="org">.org</span> <span class="caret" aria-hidden="true">&#9662;</span></summary>
+    <div class="menu">
+      <a href="https://www.loema.com">loema<span class="org">.com</span>
+        <span class="which">where you begin — the litmus</span></a>
+      <a href="/" aria-current="true">loema<span class="org">.org</span>
+        <span class="which">where you are — the commons</span></a>
+    </div>
+  </details>
   <nav class="site" aria-label="Site">{navlinks}</nav>
 </div></header>
 <main id="main"><div class="shell">
@@ -227,8 +249,8 @@ by listening, in conversation, afterward.</p></div>
 on your devices and browsers, on your terms — and, eventually, open gardens: the half of your
 garden you choose to let others walk through. Later because trust is built in that order.</p></div>
 
-<p class="quiet">This page will grow more alive — a journey you can walk rather than a list you
-read. Dates are deliberately absent: Loema refuses manufactured urgency, including its own.</p>
+<p class="quiet">This page will grow more alive. Dates are deliberately absent:
+Loema refuses manufactured urgency, including its own.</p>
 """)
 
 PAGES["funds/index.html"] = ("Where money goes — Loema", "How an ad-free, data-free project stays alive: the constraint envelope, donations, and the commitment to report spending.", "/funds/", """
@@ -252,7 +274,9 @@ card details with Loema.</p>
 
 <h2>The commitment</h2>
 <p>From the first supported dollar, spending is reported here on a regular rhythm, in plain
-language — what came in, what it paid for. The first report arrives with the first dollar;
+language — what came in, what it paid for. That includes, plainly, what pays the founder:
+keeping the builder alive is a cost of the building, and it will sit in the ledger under its
+own name rather than hide inside another line. The first report arrives with the first dollar;
 the rhythm will be stated on this page before then, not negotiated after.</p>
 
 <p class="quiet">Membership, paid labor-saving features, and physical things worth keeping may
@@ -302,8 +326,11 @@ own terms and privacy policy. Loema receives the supporter name/message Ko&#8209
 never card or bank details.</p>
 
 <h2>Children</h2>
-<p>Loema's sites are not directed to children under 13, and because nothing is collected or
-stored by us, no child's personal information is either. The newsletter is for ages 16 and up.</p>
+<p>Loema has no age gate and dictates nothing about who may reason with their own technology —
+there is nothing explicit here, and nothing collected from anyone of any age. In the legal
+sense that matters: these sites are not "directed to children under 13" (the COPPA category),
+and because we collect and store nothing, no child's personal information is either. The
+newsletter — the one place an email changes hands — is for ages 13 and up.</p>
 
 <h2>Your rights</h2>
 <p>Whatever your jurisdiction grants you — access, deletion, correction, portability — exercising
@@ -403,7 +430,7 @@ PAGES["legal/refunds/index.html"] = ("Refund policy — Loema", "Nothing is sold
 voluntary gift, processed by Ko&#8209;fi under
 <a href="https://more.ko-fi.com/terms" rel="noopener">Ko&#8209;fi's terms</a>. Gifts are generally
 not refundable, but if you made one in error, write to
-<a href="mailto:feedback@loema.com">feedback@loema.com</a> within 14 days and we will do right
+<a href="mailto:feedback@loema.com">feedback@loema.com</a> within 7 days and we will do right
 by you.</p>
 
 <h2>When something is sold</h2>
