@@ -173,14 +173,15 @@ only on your device.</p>
 confirmed, amended, authored directly, or left open.</li>
 <li><strong>Yours, portably.</strong> The file is plain JSON. Any tool, any AI, any person you
 hand it to can read it without Loema's involvement.</li>
-<li><strong>Addresses are permanent.</strong> <code>/constitution/v2</code> always means version 2.
-Future versions get their own address; nothing you downloaded is ever redirected out from
-under you.</li>
+<li><strong>The address is permanent.</strong> Every constitution points to
+<code>/constitution/schema</code>, and that is where the definition stays. A new round adds to
+your document without changing the address, and nothing you downloaded is ever redirected out
+from under you.</li>
 </ul>
 
 <h2>The schema</h2>
-<p>Documents declare <code>"$schema": "https://loema.org/constitution/v2"</code>.
-The definition is served at exactly that address: <a href="/constitution/v2">loema.org/constitution/v2</a>.</p>
+<p>Documents declare <code>"$schema": "https://loema.org/constitution/schema"</code>.
+The definition is served at exactly that address.</p>
 
 <h2>Openness</h2>
 <p>The format is published to be used. Reading, writing, and honoring these documents requires
@@ -450,18 +451,18 @@ CURRENTS = {"index.html": "/", "constitution/index.html": "/constitution/",
 for path, (title, desc, cur, body) in PAGES.items():
     write(path, page(path, title, desc, body, CURRENTS.get(path)))
 
-# ———— the schema, at exactly /constitution/v2 ————
+# ———— the schema, at exactly /constitution/schema (one address, no version number — Decision 0020) ————
 import json
 schema = {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://loema.org/constitution/v2",
-  "title": "Personal Data Constitution (v2)",
-  "description": "The document issued by the Loema litmus (instrument loema-litmus-v5) and carried by its author. Published so the file outlives Loema; permissive by design — unknown fields MUST be preserved, never stripped. /v2 always means v2; future versions get their own address.",
+  "$id": "https://loema.org/constitution/schema",
+  "title": "Personal Data Constitution",
+  "description": "The document issued by the Loema litmus and carried by its author. Published so the file outlives Loema. One address for every constitution: the format grows by addition, and a round adds articles and namespaces without changing this address. Permissive by design — unknown fields MUST be preserved, never stripped.",
   "type": "object",
   "required": ["articles"],
   "additionalProperties": True,
   "properties": {
-    "$schema": {"type": "string", "const": "https://loema.org/constitution/v2"},
+    "$schema": {"type": "string", "description": "https://loema.org/constitution/schema. Readers accept any address under https://loema.org/constitution."},
     "namespace": {"type": "string", "description": "The instrument's namespace; 'personal' for the first litmus."},
     "title": {"type": "string"},
     "author": {"type": "object", "additionalProperties": True, "properties": {
@@ -482,7 +483,7 @@ schema = {
         "confirmed": {"type": "boolean"},
         "amended": {"type": "boolean"}}}},
     "loema_safeguards": {"type": "object", "additionalProperties": True,
-      "description": "Defaults Loema applies until the author decides — explicitly outside the author's words."},
+      "description": "Written by earlier documents and no longer written. Readers preserve it if present."},
     "through_line": {"type": "object", "additionalProperties": True, "properties": {
       "text": {"type": "string"},
       "verdict": {"type": "string", "enum": ["confirmed", "partial", "replaced_by_author", "fits"]},
@@ -502,13 +503,13 @@ schema = {
         "description": "OPT-IN ONLY. Coarse inter-tap intervals of the signing; present only if the author chose to keep them. Lives in this file and nowhere else."},
       "circles": {"type": "array", "description": "OPT-IN ONLY. Coarse ring traces: sweep_deg in 15-degree steps, direction, duration_ms in 50 ms steps — never a raw path."}}},
     "provenance": {"type": "object", "additionalProperties": True, "properties": {
-      "instrument": {"type": "string"},
+      "instrument": {"type": "string", "description": "The instrument that issued the document, e.g. loema-litmus. No build number."},
       "stored_by_loema": {"type": "boolean", "const": False}}}
   }
 }
-write("constitution/v2", json.dumps(schema, indent=2))
+write("constitution/schema", json.dumps(schema, indent=2))
 
-write("_headers", """/constitution/v2
+write("_headers", """/constitution/schema
   Content-Type: application/schema+json; charset=utf-8
   Access-Control-Allow-Origin: *
 
@@ -528,7 +529,8 @@ no analytics, no forms.
 Everything under `site/` is generated — edit `build.py` at the repo root and
 run `python3 build.py` to regenerate. Deploy: Cloudflare Pages, no build
 command, build output directory `site` (the `_headers` file there serves
-`/constitution/v2` as JSON Schema).
+`/constitution/schema` as JSON Schema — one address for the format, no
+version number).
 
 Held back deliberately (reserved, unbuilt): /essays/, /clarity-analytics/.
 

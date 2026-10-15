@@ -100,14 +100,15 @@ only on your device.</p>
 confirmed, amended, authored directly, or left open.</li>
 <li><strong>Yours, portably.</strong> The file is plain JSON. Any tool, any AI, any person you
 hand it to can read it without Loema's involvement.</li>
-<li><strong>Addresses are permanent.</strong> <code>/constitution/v2</code> always means version 2.
-Future versions get their own address; nothing you downloaded is ever redirected out from
-under you.</li>
+<li><strong>The address is permanent.</strong> Every constitution points to
+<code>/constitution/schema</code>, and that is where the definition stays. A new round adds to
+your document without changing the address, and nothing you downloaded is ever redirected out
+from under you.</li>
 </ul>
 
 <h2>The schema</h2>
-<p>Documents declare <code>"$schema": "https://loema.org/constitution/v2"</code>.
-The definition is served at exactly that address: <a href="/constitution/v2">loema.org/constitution/v2</a>.</p>
+<p>Documents declare <code>"$schema": "https://loema.org/constitution/schema"</code>.
+The definition is served at exactly that address.</p>
 
 <h2>Openness</h2>
 <p>The format is published to be used. Reading, writing, and honoring these documents requires

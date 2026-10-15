@@ -6,7 +6,8 @@ no analytics, no forms.
 Everything under `site/` is generated — edit `build.py` at the repo root and
 run `python3 build.py` to regenerate. Deploy: Cloudflare Pages, no build
 command, build output directory `site` (the `_headers` file there serves
-`/constitution/v2` as JSON Schema).
+`/constitution/schema` as JSON Schema — one address for the format, no
+version number).
 
 Held back deliberately (reserved, unbuilt): /essays/, /clarity-analytics/.
 

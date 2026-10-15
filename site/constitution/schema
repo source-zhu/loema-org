@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://loema.org/constitution/v2",
-  "title": "Personal Data Constitution (v2)",
-  "description": "The document issued by the Loema litmus (instrument loema-litmus-v5) and carried by its author. Published so the file outlives Loema; permissive by design \u2014 unknown fields MUST be preserved, never stripped. /v2 always means v2; future versions get their own address.",
+  "$id": "https://loema.org/constitution/schema",
+  "title": "Personal Data Constitution",
+  "description": "The document issued by the Loema litmus and carried by its author. Published so the file outlives Loema. One address for every constitution: the format grows by addition, and a round adds articles and namespaces without changing this address. Permissive by design \u2014 unknown fields MUST be preserved, never stripped.",
   "type": "object",
   "required": [
     "articles"
@@ -11,7 +11,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://loema.org/constitution/v2"
+      "description": "https://loema.org/constitution/schema. Readers accept any address under https://loema.org/constitution."
     },
     "namespace": {
       "type": "string",
@@ -95,7 +95,7 @@
     "loema_safeguards": {
       "type": "object",
       "additionalProperties": true,
-      "description": "Defaults Loema applies until the author decides \u2014 explicitly outside the author's words."
+      "description": "Written by earlier documents and no longer written. Readers preserve it if present."
     },
     "through_line": {
       "type": "object",
@@ -173,7 +173,8 @@
       "additionalProperties": true,
       "properties": {
         "instrument": {
-          "type": "string"
+          "type": "string",
+          "description": "The instrument that issued the document, e.g. loema-litmus. No build number."
         },
         "stored_by_loema": {
           "type": "boolean",
