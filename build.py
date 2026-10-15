@@ -444,6 +444,14 @@ by you.</p>
 its own clearly stated refund terms — published before purchase, not after.</p>
 """)
 
+# The not-found page. Cloudflare Pages answers every unknown path with the home page and a 200
+# unless a 404.html exists; this one makes a removed address return nothing (Decision 0020, r3).
+PAGES["404.html"] = ("Nothing is at this address — Loema", "There is no page at this address on loema.org.", "/404", """
+<h1>Nothing is at this address.</h1>
+<p>If a link brought you here, the pages that exist are listed above. The constitution format
+and its definition are at <a href="/constitution/">/constitution/</a>.</p>
+""")
+
 CURRENTS = {"index.html": "/", "constitution/index.html": "/constitution/",
             "refusals/index.html": "/refusals/", "roadmap/index.html": "/roadmap/",
             "funds/index.html": "/funds/"}
