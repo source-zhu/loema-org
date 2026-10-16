@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://loema.org/constitution/schema",
   "title": "Personal Data Constitution",
-  "description": "The document issued by the Loema litmus and carried by its author. Published so the file outlives Loema. One address for every constitution: the format grows by addition, and a round adds articles and namespaces without changing this address. Permissive by design \u2014 unknown fields MUST be preserved, never stripped.",
+  "description": "The document issued by the conversations at loema.com and carried by its author. Published so the file outlives Loema. One address for every constitution: the format grows by addition, and a round adds articles and namespaces without changing this address. Permissive by design \u2014 unknown fields MUST be preserved, never stripped.",
   "type": "object",
   "required": [
     "articles"
@@ -15,18 +15,25 @@
     },
     "namespace": {
       "type": "string",
-      "description": "The instrument's namespace; 'personal' for the first litmus."
+      "description": "The namespace of the conversation that issued the document; 'personal' for the first."
     },
     "title": {
       "type": "string"
+    },
+    "notice": {
+      "type": "string",
+      "description": "A line for the holder, written by the issuer (e.g. that no one from Loema will ever ask for the document). Readers preserve it."
     },
     "author": {
       "type": "object",
       "additionalProperties": true,
       "properties": {
         "display_name": {
-          "type": "string",
-          "description": "Optional name or pseudonym, chosen by the author."
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Optional name or pseudonym, chosen by the author; null when the author kept the document unnamed."
         },
         "source": {
           "type": "string"
@@ -174,7 +181,7 @@
       "properties": {
         "instrument": {
           "type": "string",
-          "description": "The instrument that issued the document, e.g. loema-litmus. No build number."
+          "description": "What issued the document, e.g. loema.com. No build number. Earlier documents may carry an earlier label; readers preserve it."
         },
         "stored_by_loema": {
           "type": "boolean",

@@ -18,10 +18,10 @@ header.site .shell{display:flex;justify-content:space-between;align-items:baseli
 /* the domain toggle: loema stays; the half you're in drops down and swaps */
 .domain{position:relative;}
 .domain summary{list-style:none;cursor:pointer;font-size:1.1rem;letter-spacing:.02em;color:var(--ink);
-  display:inline-flex;align-items:baseline;gap:4px;}
+  display:inline-flex;align-items:baseline;gap:0;}
 .domain summary::-webkit-details-marker{display:none;}
 .domain summary .org{color:var(--dim);}
-.domain summary .caret{font-size:.6rem;color:var(--dim);transform:translateY(-2px);}
+.domain summary .caret{font-size:.6rem;color:var(--dim);margin-left:6px;transform:translateY(-2px);}
 .domain[open] summary .caret{transform:translateY(-2px) rotate(180deg);}
 .domain .menu{position:absolute;top:calc(100% + 8px);left:0;z-index:20;min-width:200px;
   background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:8px;
@@ -29,8 +29,12 @@ header.site .shell{display:flex;justify-content:space-between;align-items:baseli
 .domain .menu a{display:block;padding:9px 12px;border-radius:6px;text-decoration:none;color:var(--ink);}
 .domain .menu a:hover{background:var(--paper);}
 .domain .menu .which{display:block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:2px;}
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:2px;white-space:nowrap;}
 .domain .menu a[aria-current] .which{color:var(--accent);}
+/* each domain keeps its own type wherever it is named: loema.com in capitals, loema.org in lowercase serif */
+.domain .menu .dn-com{font:600 .78rem 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);}
+.domain .menu .dn-org{letter-spacing:.02em;}
+.domain .menu .org{color:var(--dim);}
 nav.site{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.82rem;letter-spacing:.04em;}
 nav.site a{color:var(--dim);text-decoration:none;margin-left:14px;}
 nav.site a:hover,nav.site a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
@@ -89,9 +93,9 @@ def page(path, title, desc, body, current):
   <details class="domain">
     <summary aria-label="loema.org — switch between loema.com and loema.org">loema<span class="org">.org</span> <span class="caret" aria-hidden="true">&#9662;</span></summary>
     <div class="menu">
-      <a href="https://www.loema.com">loema<span class="org">.com</span>
-        <span class="which">where you begin — the litmus</span></a>
-      <a href="/" aria-current="true">loema<span class="org">.org</span>
+      <a href="https://loema.com"><span class="dn-com">loema<span class="org">.com</span></span>
+        <span class="which">where you begin — the conversations</span></a>
+      <a href="/" aria-current="true"><span class="dn-org">loema<span class="org">.org</span></span>
         <span class="which">where you are — the commons</span></a>
     </div>
   </details>
@@ -109,7 +113,7 @@ def page(path, title, desc, body, current):
   </nav>
   <p>Loema LLC &middot; <a href="mailto:feedback@loema.com">feedback@loema.com</a></p>
   <p>loema.org sets no cookies, runs no analytics, and loads nothing from anyone else's servers.
-     <a href="https://www.loema.com">loema.com</a> is where the conversation begins.</p>
+     <a href="https://loema.com">loema.com</a> is where the conversation begins.</p>
 </div></footer>
 </body>
 </html>"""
@@ -130,7 +134,7 @@ PAGES["index.html"] = ("Loema — the commons", "The public trust layer of Loema
 This is where Loema holds itself to rules of its own.</p>
 
 <p>Loema is built on a simple refusal: software that shapes how you see yourself should not
-also be studying you. The litmus at loema.com issues a personal constitution that lives only
+also be studying you. The conversations at loema.com issue a personal constitution that lives only
 in your keeping — Loema operates no server that holds it, no account that contains you, and
 no analytics that watch you write it.</p>
 
@@ -216,32 +220,34 @@ sorts people into an order of progress. That boundary is permanent.</li>
 <li><b>No answers.</b> Loema is scaffolding, not revelation. It will not tell you what to
 believe, and it is not a guru, a therapist, or an awakening.</li>
 <li><b>No paywalled self-knowledge.</b> Understanding yourself is never a premium feature.
-If Loema ever charges, it charges for labor and infrastructure — never for the mirror.</li>
+If Loema ever charges, it charges for labor and infrastructure — never for seeing yourself
+clearly. The conversations at loema.com stay free for good.</li>
 </ul>
 
 <p class="quiet">These refusals are recorded in Loema's internal canon with their full history.
 None may be quietly reopened; reversing one would have to be done here, in public, with reasons.</p>
 """)
 
-PAGES["roadmap/index.html"] = ("The roadmap — Loema", "Where Loema is going, in the open: the litmus series, the rounds, the app, and what comes after.", "/roadmap/", """
+PAGES["roadmap/index.html"] = ("The roadmap — Loema", "Where Loema is going, in the open: the conversations, the app, and what comes after.", "/roadmap/", """
 <h1>The road, in the open.</h1>
 <p class="lede">Loema builds in public. This is the honest state of the journey —
 what exists, what is next, and what deliberately waits.</p>
 
 <div class="era"><span class="when">Now — live</span>
-<p><strong>The first conversation.</strong> The litmus at
-<a href="https://www.loema.com">loema.com</a> — ten questions, one sentence of your own,
+<p><strong>The first conversation.</strong> At
+<a href="https://loema.com">loema.com</a> — ten questions, one sentence of your own,
 and a witnessed personal constitution that goes home with you. Nothing stored by Loema.</p></div>
 
 <div class="era"><span class="when">Now — in private testing</span>
-<p><strong>The app.</strong> A place your constitution lives: a mirror of your own words,
-a discovery room that ends, and a garden you cultivate. Local-first — everything stays on
+<p><strong>The app.</strong> A place your constitution lives: your own words, reflected back;
+a discovery room that ends; and a garden you cultivate. Local-first — everything stays on
 your device, exportable and erasable in full. In the hands of its first testers now.</p></div>
 
 <div class="era"><span class="when">Next</span>
-<p><strong>The rounds.</strong> The litmus is a first conversation, not a final exam.
-Returning visits deepen the document — storage in your own words, then feeds, and onward —
-each round short, each producing articles you can amend.</p></div>
+<p><strong>Seven more conversations.</strong> The first is a beginning, not a final exam.
+The rest arrive one at a time — feeds, then data, attention, retention, sharing,
+participation, and last, self — each one short, each adding articles you can amend to the
+document you keep.</p></div>
 
 <div class="era"><span class="when">Then</span>
 <p><strong>Gatherings.</strong> Rooms where people write their constitutions together,
@@ -300,7 +306,7 @@ Loema LLC. Effective October 2026.</p>
 {recap("Loema is built not to know you. We keep no accounts, run no analytics, and hold none of what you write. The one thing we ever hold is an email address — only if you join the newsletter, and you can leave any time.")}
 
 <h2>What Loema does not collect</h2>
-<p>The litmus at loema.com and the Loema app run entirely on your device. Your answers, your
+<p>The conversations at loema.com and the Loema app run entirely on your device. Your answers, your
 constitution, your signature rhythm, anything you keep in the app — none of it is transmitted
 to Loema or anyone else by us. We operate no analytics, no advertising trackers, no behavioral
 measurement, and no server that stores user content. We never sell personal information, and
@@ -351,14 +357,14 @@ PAGES["legal/terms/index.html"] = ("Terms of service — Loema", "The terms for 
 <h1>Terms of service.</h1>
 <p class="lede">For <strong>loema.com</strong> and <strong>loema.org</strong>, operated by
 Loema LLC. Effective October 2026.</p>
-{recap("Use the litmus freely; the document it makes is yours. Don't misuse the sites. Loema is honest reflection, not professional advice, and comes as-is. Donations are gifts, not purchases.")}
+{recap("Use the conversations freely; the document they make is yours. Don't misuse the sites. Loema is honest reflection, not professional advice, and comes as-is. Donations are gifts, not purchases.")}
 
 <h2>1. Who we are</h2>
 <p>These sites are operated by Loema LLC ("Loema", "we"). Contact:
 <a href="mailto:feedback@loema.com">feedback@loema.com</a>.</p>
 
-<h2>2. The litmus and your document</h2>
-<p>The litmus is free. The constitution it produces is <strong>yours</strong>: you own your
+<h2>2. The conversations and your document</h2>
+<p>The conversations at loema.com are free. The constitution they produce is <strong>yours</strong>: you own your
 answers, your preamble, and your document, and you may use, edit, publish, or destroy it
 without any permission from us. Loema claims no license over your words — it never receives
 them.</p>
@@ -389,7 +395,7 @@ investments, or pre-orders, and confer no goods, services, or rights. See the
 <a href="/legal/refunds/">refund policy</a>.</p>
 
 <h2>7. As-is; limitation of liability</h2>
-<p>The sites and the litmus are provided "as is," without warranties of any kind, to the fullest
+<p>The sites and the conversations are provided "as is," without warranties of any kind, to the fullest
 extent permitted by law. To that same extent, Loema LLC's total liability arising from your use
 of the sites is limited to the amount you have paid us — which, today, is nothing. Nothing here
 limits liability that cannot lawfully be limited.</p>
@@ -429,7 +435,7 @@ PAGES["legal/refunds/index.html"] = ("Refund policy — Loema", "Nothing is sold
 {recap("Nothing is for sale yet, so there's nothing to refund. Donations are gifts through Ko-fi. When something is sold someday, its refund terms will be stated before you pay.")}
 
 <h2>Today</h2>
-<p>Loema sells no goods or services. The litmus and these pages are free.</p>
+<p>Loema sells no goods or services. The conversations and these pages are free.</p>
 
 <h2>Donations</h2>
 <p>Support given through <a href="https://ko-fi.com/loema" rel="noopener">Ko&#8209;fi</a> is a
@@ -465,16 +471,17 @@ schema = {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://loema.org/constitution/schema",
   "title": "Personal Data Constitution",
-  "description": "The document issued by the Loema litmus and carried by its author. Published so the file outlives Loema. One address for every constitution: the format grows by addition, and a round adds articles and namespaces without changing this address. Permissive by design — unknown fields MUST be preserved, never stripped.",
+  "description": "The document issued by the conversations at loema.com and carried by its author. Published so the file outlives Loema. One address for every constitution: the format grows by addition, and a round adds articles and namespaces without changing this address. Permissive by design — unknown fields MUST be preserved, never stripped.",
   "type": "object",
   "required": ["articles"],
   "additionalProperties": True,
   "properties": {
     "$schema": {"type": "string", "description": "https://loema.org/constitution/schema. Readers accept any address under https://loema.org/constitution."},
-    "namespace": {"type": "string", "description": "The instrument's namespace; 'personal' for the first litmus."},
+    "namespace": {"type": "string", "description": "The namespace of the conversation that issued the document; 'personal' for the first."},
     "title": {"type": "string"},
+    "notice": {"type": "string", "description": "A line for the holder, written by the issuer (e.g. that no one from Loema will ever ask for the document). Readers preserve it."},
     "author": {"type": "object", "additionalProperties": True, "properties": {
-      "display_name": {"type": "string", "description": "Optional name or pseudonym, chosen by the author."},
+      "display_name": {"type": ["string", "null"], "description": "Optional name or pseudonym, chosen by the author; null when the author kept the document unnamed."},
       "source": {"type": "string"}}},
     "preamble": {"type": "object", "additionalProperties": True, "properties": {
       "text": {"type": "string", "description": "The author's own sentence, verbatim."},
@@ -511,7 +518,7 @@ schema = {
         "description": "OPT-IN ONLY. Coarse inter-tap intervals of the signing; present only if the author chose to keep them. Lives in this file and nowhere else."},
       "circles": {"type": "array", "description": "OPT-IN ONLY. Coarse ring traces: sweep_deg in 15-degree steps, direction, duration_ms in 50 ms steps — never a raw path."}}},
     "provenance": {"type": "object", "additionalProperties": True, "properties": {
-      "instrument": {"type": "string", "description": "The instrument that issued the document, e.g. loema-litmus. No build number."},
+      "instrument": {"type": "string", "description": "What issued the document, e.g. loema.com. No build number. Earlier documents may carry an earlier label; readers preserve it."},
       "stored_by_loema": {"type": "boolean", "const": False}}}
   }
 }

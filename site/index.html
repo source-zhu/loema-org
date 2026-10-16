@@ -19,10 +19,10 @@ header.site .shell{display:flex;justify-content:space-between;align-items:baseli
 /* the domain toggle: loema stays; the half you're in drops down and swaps */
 .domain{position:relative;}
 .domain summary{list-style:none;cursor:pointer;font-size:1.1rem;letter-spacing:.02em;color:var(--ink);
-  display:inline-flex;align-items:baseline;gap:4px;}
+  display:inline-flex;align-items:baseline;gap:0;}
 .domain summary::-webkit-details-marker{display:none;}
 .domain summary .org{color:var(--dim);}
-.domain summary .caret{font-size:.6rem;color:var(--dim);transform:translateY(-2px);}
+.domain summary .caret{font-size:.6rem;color:var(--dim);margin-left:6px;transform:translateY(-2px);}
 .domain[open] summary .caret{transform:translateY(-2px) rotate(180deg);}
 .domain .menu{position:absolute;top:calc(100% + 8px);left:0;z-index:20;min-width:200px;
   background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:8px;
@@ -30,8 +30,12 @@ header.site .shell{display:flex;justify-content:space-between;align-items:baseli
 .domain .menu a{display:block;padding:9px 12px;border-radius:6px;text-decoration:none;color:var(--ink);}
 .domain .menu a:hover{background:var(--paper);}
 .domain .menu .which{display:block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:2px;}
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:2px;white-space:nowrap;}
 .domain .menu a[aria-current] .which{color:var(--accent);}
+/* each domain keeps its own type wherever it is named: loema.com in capitals, loema.org in lowercase serif */
+.domain .menu .dn-com{font:600 .78rem 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);}
+.domain .menu .dn-org{letter-spacing:.02em;}
+.domain .menu .org{color:var(--dim);}
 nav.site{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.82rem;letter-spacing:.04em;}
 nav.site a{color:var(--dim);text-decoration:none;margin-left:14px;}
 nav.site a:hover,nav.site a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
@@ -73,9 +77,9 @@ pre{padding:14px;overflow-x:auto;margin-bottom:14px;}
   <details class="domain">
     <summary aria-label="loema.org — switch between loema.com and loema.org">loema<span class="org">.org</span> <span class="caret" aria-hidden="true">&#9662;</span></summary>
     <div class="menu">
-      <a href="https://www.loema.com">loema<span class="org">.com</span>
-        <span class="which">where you begin — the litmus</span></a>
-      <a href="/" aria-current="true">loema<span class="org">.org</span>
+      <a href="https://loema.com"><span class="dn-com">loema<span class="org">.com</span></span>
+        <span class="which">where you begin — the conversations</span></a>
+      <a href="/" aria-current="true"><span class="dn-org">loema<span class="org">.org</span></span>
         <span class="which">where you are — the commons</span></a>
     </div>
   </details>
@@ -88,7 +92,7 @@ pre{padding:14px;overflow-x:auto;margin-bottom:14px;}
 This is where Loema holds itself to rules of its own.</p>
 
 <p>Loema is built on a simple refusal: software that shapes how you see yourself should not
-also be studying you. The litmus at loema.com issues a personal constitution that lives only
+also be studying you. The conversations at loema.com issue a personal constitution that lives only
 in your keeping — Loema operates no server that holds it, no account that contains you, and
 no analytics that watch you write it.</p>
 
@@ -122,7 +126,7 @@ itself by. Nothing on this site will ever need an account to read.</p>
   </nav>
   <p>Loema LLC &middot; <a href="mailto:feedback@loema.com">feedback@loema.com</a></p>
   <p>loema.org sets no cookies, runs no analytics, and loads nothing from anyone else's servers.
-     <a href="https://www.loema.com">loema.com</a> is where the conversation begins.</p>
+     <a href="https://loema.com">loema.com</a> is where the conversation begins.</p>
 </div></footer>
 </body>
 </html>
