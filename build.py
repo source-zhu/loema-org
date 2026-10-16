@@ -221,7 +221,7 @@ sorts people into an order of progress. That boundary is permanent.</li>
 believe, and it is not a guru, a therapist, or an awakening.</li>
 <li><b>No paywalled self-knowledge.</b> Understanding yourself is never a premium feature.
 If Loema ever charges, it charges for labor and infrastructure — never for seeing yourself
-clearly. The conversations at loema.com stay free for good.</li>
+clearly. The conversations at loema.com are free.</li>
 </ul>
 
 <p class="quiet">These refusals are recorded in Loema's internal canon with their full history.
